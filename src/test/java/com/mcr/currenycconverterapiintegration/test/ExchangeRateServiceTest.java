@@ -2,14 +2,20 @@ package com.mcr.currenycconverterapiintegration.test;
 
 import com.mcr.currenycconverterapiintegration.dto.CurrencyConversionResponse;
 import com.mcr.currenycconverterapiintegration.service.ExchangeRateService;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import reactor.core.publisher.Mono;
 import org.junit.jupiter.api.Test;
 import reactor.test.StepVerifier;
-
 import java.util.Map;
 
+@ExtendWith(org.springframework.test.context.junit.jupiter.SpringExtension.class)
+@SpringBootTest
 class ExchangeRateServiceTest {
-    private final ExchangeRateService exchangeRateService = new ExchangeRateService();
+
+    @Autowired
+    private ExchangeRateService exchangeRateService;
 
     @Test
     void testGetExchangeRates() {
