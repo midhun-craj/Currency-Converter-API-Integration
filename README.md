@@ -21,20 +21,32 @@ Before running the project, ensure you have the following installed:
 
 ## 🚀 How to Run Locally
 
-### **Step 1: Clone the Repository**
+### **1️⃣ Clone the Repository**
+
 ```sh
-git clone https://github.com/midhun-craj/Currency-Converter-API-Integration.git
-cd Currency-Converter-API-Integration
+git clone https://github.com/yourusername/currency-converter-api.git
+cd currency-converter-api
 ```
 
-### **Step 2: Set Up API Key**
+### **2️⃣ Set Up API Key**
 This project requires an API key for fetching exchange rates. Update application.properties with your API key and API url:
 ```sh
 exchange.api.url=YOUR_API_URL_HERE
 exchange.api.key=YOUR_API_KEY_HERE
 ```
 
-### **Step 3: Build and Run the Application**
+### **3️⃣ Build & Run the Application**
+
+For Mac/Linux:
+```sh
+./mvnw spring-boot:run
+```
+
+For Windows:
+```sh
+mvnw.cmd spring-boot:run
+```
+
 Using Maven (Recommended)
 ```sh
 mvn clean install
@@ -47,94 +59,7 @@ Using IntelliJ IDEA
 
 ---
 
-## 📌 API Endpoints
-
-### **1️⃣ Fetch Exchange Rates**
-**GET** `/api/rates?base=USD`
-
-Returns exchange rates for the given base currency (default: `USD`).
-
-#### Example Response:
-```json
-{
-  "base": "USD",
-  "rates": {
-    "EUR": 0.945,
-    "GBP": 0.82,
-    "INR": 83.12
-  }
-}
-```
-
-### **2️⃣ Convert Currency**
-POST /api/convert
-
-Converts an amount from one currency to another.
-
-Request Body:
-```json
-{
-  "from": "USD",
-  "to": "EUR",
-  "amount": 100
-}
-```
-Response:
-```json
-{
-  "from": "USD",
-  "to": "EUR",
-  "amount": 100,
-  "convertedAmount": 94.5
-}
-```
-
----
-
-## **⚠️ Error Handling**
-This application includes centralized error handling for common issues:
-
-1. **Invalid Currency Codes** (`400 Bad Request`)  
-   - If an unsupported or incorrect currency code is provided, the API returns:
-     ```json
-     {
-       "error": "Invalid currency code: `INVALID_CODE`",
-       "status": 400
-     }
-     ```
-
-2. **Unexpected Errors** (`500 Internal Server Error`)  
-   - If an unknown error occurs, the API returns:
-     ```json
-     {
-       "error": "An unexpected error occurred",
-       "status": 500
-     }
-     ```
-
----
-
-## **🛠 Setup & Run Locally**
-### **1️⃣ Clone the Repository**
-
-```sh
-git clone https://github.com/yourusername/currency-converter-api.git
-cd currency-converter-api
-```
-
-### **2️⃣ Build & Run the Application**
-
-For Mac/Linux:
-```sh
-./mvnw spring-boot:run
-```
-
-For Windows:
-```sh
-mvnw.cmd spring-boot:run
-```
-
-### **3️⃣ Run Tests**
+### **Run Tests**
 ```sh
 mvn test
 ```
