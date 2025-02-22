@@ -89,7 +89,7 @@ Response Code: 503 Service Unavailable
 ```
 
 ## **🧪 Testing the API**
-1. Use Postman or cURL to send GET/POST requests.
+1. Use Postman or URL to send GET/POST requests.
 2. Run integration tests using
 ```sh
 mvn test
